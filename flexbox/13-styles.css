@@ -1,0 +1,46 @@
+/* SUMMARY
+    1. GLOBAL
+    2. LAYOUT
+    3. SECTION
+    4. CARD
+*/
+
+/*** 1. GLOBAL ***/
+
+/* Variables
+   ============================= */
+
+:root {
+  --color-primary: #D73953;
+  --color-black:  #090909;
+  --color-white: #ffffff;
+  --color-grey: #a0a0a0;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+
+  --text-color: var(--color-black);
+
+  --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  /** SECTION **/
+  --section-padding: 5rem 0;
+  --section-header-padding: 0 0 3rem;
+  --section-header-align: center;
+  --section-title-font-size: var(--font-size-xx-large);
+  --section-title-font-weight: var(--font-weight-bold);
+  --section-title-line-height: var(--line-height-small);
+}
