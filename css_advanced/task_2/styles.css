@@ -1,50 +1,40 @@
 /* =========================================
-   Variables & Base Setup
+   Base Styles & Variables
    ========================================= */
 :root {
   --color-white: #ffffff;
-  --color-purple: #C271FF; /* Replace with exact Figma hex */
-  --font-primary: 'Source Sans Pro', sans-serif; /* Update to Figma font */
+  --color-purple: #C271FF; /* Approximate based on image */
 }
 
 body {
   margin: 0;
-  font-family: var(--font-primary);
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
+  font-family: 'Source Sans Pro', sans-serif; /* Standard font for this project */
+  color: var(--color-white);
 }
 
 /* =========================================
-   Header Styling
+   Header & Navigation
    ========================================= */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 50px;
-  position: absolute; /* Overlays the header on top of the banner image */
+  position: absolute; /* Transparent nav positioned at the top */
   top: 0;
   left: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 8%;
+  box-sizing: border-box;
   z-index: 10;
 }
 
-.logo {
+.header-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.logo-text {
-  color: var(--color-white);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.nav-list {
+/* 3 nav links (COURSES, PRICING, LOGIN) in white bold text aligned to the right */
+.nav-links {
   display: flex;
   list-style: none;
   margin: 0;
@@ -52,133 +42,111 @@ body {
   gap: 40px;
 }
 
-.nav-list a {
+.nav-links a {
   color: var(--color-white);
   text-decoration: none;
+  font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 12px;
   letter-spacing: 1px;
 }
 
-.nav-list a:hover {
-  color: var(--color-purple); /* Optional hover state */
-}
-
 /* =========================================
-   Banner Section Styling (First Section)
+   Hero / Banner Section
    ========================================= */
-.banner-section {
-  /* Use linear-gradient to create the dark overlay over the image */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../images/banner-bg.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 800px; /* Adjust height based on Figma */
+.hero-section {
+  /* Dark background image with a radial gradient overlay */
+  background: 
+    radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%), 
+    url('../images/pic_1.jpg') no-repeat center center / cover;
+  min-height: 800px; /* Adjust based on exact figma dimensions */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px; /* Accounts for the absolute header */
-  color: var(--color-white);
   text-align: center;
+  padding-top: 100px; /* Offset for absolute header */
 }
 
-.banner-content {
-  margin-bottom: 80px;
-}
-
-.banner-title {
-  font-size: 5rem;
-  font-weight: 700;
+/* Large bold heading “Get schooled” centered */
+.hero-title {
+  font-size: 100px; /* Adjust size to Figma */
+  font-weight: bold;
   margin: 0 0 20px 0;
 }
 
-.banner-features {
+/* 3 keywords (SMILES, GRIN, LAUGH) displayed in a horizontal row */
+.hero-keywords {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
+  font-weight: bold;
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1rem;
   margin-bottom: 40px;
 }
 
+/* Purple rounded “REGISTER FOR FREE” button centered */
 .btn-primary {
   background-color: var(--color-purple);
   color: var(--color-white);
   border: none;
   border-radius: 50px;
   padding: 15px 35px;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
 }
 
 /* =========================================
-   Pros Profiles (Inside Banner)
+   Pros Section (Bottom of Hero Banner)
    ========================================= */
-.pros-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.pros-section {
+  margin-top: 80px;
 }
 
+/* “Learn from the pros” subtitle with “Learn” in purple */
 .pros-title {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: 300;
   margin-bottom: 40px;
 }
 
-.text-purple {
+.pros-title span {
   color: var(--color-purple);
-  font-weight: 700;
+  font-weight: bold;
 }
 
-.pros-grid {
+/* 4 circular profile images aligned horizontally */
+.pros-list {
   display: flex;
   justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  gap: 60px;
 }
 
-.pro-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 140px;
+.pro-item {
+  text-align: center;
 }
 
-.pro-img {
-  width: 80px;
-  height: 80px;
+.pro-item img {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
 }
 
-.pro-name {
+/* bold names */
+.pro-item h3 {
+  font-weight: bold;
+  font-size: 16px;
   margin: 0 0 5px 0;
-  font-size: 1.1rem;
-  font-weight: 700;
 }
 
-.pro-role {
-  margin: 0 0 5px 0;
-  font-size: 0.8rem;
+/* italic descriptions */
+.pro-item p {
   font-style: italic;
-  opacity: 0.9;
-}
-
-.pro-year {
+  font-size: 14px;
   margin: 0;
-  font-size: 0.8rem;
-  opacity: 0.9;
+  opacity: 0.8;
 }
