@@ -1,152 +1,274 @@
-/* =========================================
-   Base Styles & Variables
-   ========================================= */
+ · CSS
+/* ========== VARIABLES ========== */
 :root {
-  --color-white: #ffffff;
-  --color-purple: #C271FF; /* Approximate based on image */
+  --text-color: #ffffff;
+  --section-title-color: #000000;
+  --section-tagline-color: #971e49;
+  --button-color: #ff6b6b;
+  --button-hover-color: #ff5252;
+  --nav-item-letter-spacing: 0.04rem;
+  --nav-item-font-weight: 700;
+  --border-color: #ff6b6b;
 }
-
+ 
+/* ========== GENERAL STYLES ========== */
+html {
+  scroll-behavior: smooth;
+}
+ 
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif; /* Standard font for this project */
-  color: var(--color-white);
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-color);
 }
-
-/* =========================================
-   Header & Navigation
-   ========================================= */
-.header {
-  position: absolute; /* Transparent nav positioned at the top */
+ 
+/* ========== HEADER STYLES ========== */
+header {
+  padding: 2rem 0;
+  position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
+  background: transparent;
+  z-index: 100;
+}
+ 
+.navbar-brand {
+  display: inline-block;
+  margin: 0;
+}
+ 
+.navbar-brand a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: var(--nav-item-font-weight);
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+ 
+.navbar-brand svg {
+  width: 2rem;
+  height: 2rem;
+}
+ 
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 8%;
-  box-sizing: border-box;
-  z-index: 10;
+  padding: 0 2rem;
 }
-
-.header-logo {
-  display: flex;
-  align-items: center;
-}
-
-/* 3 nav links (COURSES, PRICING, LOGIN) in white bold text aligned to the right */
-.nav-links {
+ 
+nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 40px;
+  gap: 2rem;
 }
-
-.nav-links a {
-  color: var(--color-white);
+ 
+nav a {
   text-decoration: none;
-  font-weight: bold;
+  color: var(--text-color);
+  font-weight: var(--nav-item-font-weight);
+  font-size: 0.875rem;
+  letter-spacing: var(--nav-item-letter-spacing);
   text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
-
-/* =========================================
-   Hero / Banner Section
-   ========================================= */
-.hero-section {
-  /* Dark background image with a radial gradient overlay */
-  background: 
-    radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%), 
-    url('../images/pic_1.jpg') no-repeat center center / cover;
-  min-height: 800px; /* Adjust based on exact figma dimensions */
+ 
+nav a:hover {
+  color: var(--button-color);
+}
+ 
+/* ========== HERO / BANNER SECTION ========== */
+.hero {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding-top: 100px; /* Offset for absolute header */
-}
-
-/* Large bold heading “Get schooled” centered */
-.hero-title {
-  font-size: 100px; /* Adjust size to Figma */
-  font-weight: bold;
-  margin: 0 0 20px 0;
-}
-
-/* 3 keywords (SMILES, GRIN, LAUGH) displayed in a horizontal row */
-.hero-keywords {
-  display: flex;
   justify-content: center;
-  gap: 60px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  padding-top: 5rem;
 }
-
-/* Purple rounded “REGISTER FOR FREE” button centered */
-.btn-primary {
-  background-color: var(--color-purple);
-  color: var(--color-white);
-  border: none;
+ 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+ 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+ 
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+  text-transform: lowercase;
+}
+ 
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  color: var(--text-color);
+}
+ 
+.hero .tagline {
+  color: var(--section-tagline-color);
+  font-weight: 700;
+}
+ 
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+ 
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  border: 2px solid var(--button-color);
   border-radius: 50px;
-  padding: 15px 35px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
-
-/* =========================================
-   Pros Section (Bottom of Hero Banner)
-   ========================================= */
-.pros-section {
-  margin-top: 80px;
+ 
+.btn-primary {
+  background-color: var(--button-color);
+  color: var(--text-color);
 }
-
-/* “Learn from the pros” subtitle with “Learn” in purple */
-.pros-title {
-  font-size: 32px;
-  font-weight: 300;
-  margin-bottom: 40px;
+ 
+.btn-primary:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
 }
-
-.pros-title span {
-  color: var(--color-purple);
-  font-weight: bold;
+ 
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
-
-/* 4 circular profile images aligned horizontally */
-.pros-list {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
+ 
+.btn-secondary:hover {
+  background-color: var(--text-color);
+  color: var(--button-color);
 }
-
-.pro-item {
-  text-align: center;
+ 
+/* ========== SECTION GENERAL STYLES ========== */
+section {
+  padding: 3rem 2rem;
 }
-
-.pro-item img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
+ 
+section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--section-title-color);
 }
-
-/* bold names */
-.pro-item h3 {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 0 0 5px 0;
+ 
+section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
-
-/* italic descriptions */
-.pro-item p {
-  font-style: italic;
-  font-size: 14px;
-  margin: 0;
-  opacity: 0.8;
+ 
+/* ========== CONTAINER & LAYOUT ========== */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
+ 
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+  }
+ 
+  nav a {
+    font-size: 0.75rem;
+  }
+ 
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+ 
+  .hero p {
+    font-size: 1rem;
+  }
+ 
+  .hero-buttons {
+    flex-direction: column;
+  }
+ 
+  .btn {
+    width: 100%;
+  }
+ 
+  section h2 {
+    font-size: 1.875rem;
+  }
+}
+ 
+@media (max-width: 480px) {
+  header {
+    padding: 1rem 0;
+  }
+ 
+  nav {
+    padding: 0 1rem;
+  }
+ 
+  nav ul {
+    gap: 0.5rem;
+  }
+ 
+  .hero {
+    min-height: auto;
+    padding-top: 4rem;
+  }
+ 
+  .hero h1 {
+    font-size: 2rem;
+  }
+ 
+  .hero p {
+    font-size: 0.9rem;
+  }
+ 
+  section {
+    padding: 2rem 1rem;
+  }
+ 
+  .container {
+    padding: 0 1rem;
+  }
+}
+ 
